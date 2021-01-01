@@ -4,7 +4,7 @@ import jm.task.core.jdbc.model.User;
 
 import java.util.List;
 
-public class UserDaoJDBCImpl implements UserDao {
+public class UserDaoJDBCImpl extends Util implements UserDao {
     public UserDaoJDBCImpl() {
 
     }
