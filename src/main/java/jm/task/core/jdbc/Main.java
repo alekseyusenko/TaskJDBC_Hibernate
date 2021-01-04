@@ -1,6 +1,5 @@
 package jm.task.core.jdbc;
 import jm.task.core.jdbc.service.UserServiceImpl;
-import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,10 +10,8 @@ public class Main {
         userServiceImpl.saveUser("Oleg", "Ivanov", (byte)22);
         userServiceImpl.saveUser("Alexander", "Sidorov", (byte)56);
         userServiceImpl.saveUser("Nikolay", "Tarasov", (byte)33);
-        List<User> users = userServiceImpl.getAllUsers();
-        for (User user : users) {
-            System.out.println(user);
-        } //можно и стримом, но у темплейта версия 1.8, поэтому пускай будет так, вдруг чего сломается
+        userServiceImpl.getAllUsers().
+                forEach(System.out::println);
         userServiceImpl.cleanUsersTable();
         userServiceImpl.dropUsersTable();
     }
